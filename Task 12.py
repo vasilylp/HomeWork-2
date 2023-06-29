@@ -5,10 +5,19 @@
 
 s = int(input("Сумма двух чисел : "))
 p = int(input("Произведение этих же двух чисел : "))
+flag = False
 for x in range(1001):
     for y in range(1001):
-        if (x * y) != p and (x + y) != s:
-            continue
-        elif (x * y) == p and (x + y) == s:
+        if (x * y) == p and (x + y) == s:
             print(f"x = {x}, y = {y}")
+            flag = True
             break
+    if flag:
+        break
+# 2 решение__________________________________________________
+# x + y = s  -> x + p / x = s -> x^2 - sx + p = 0 дискриминант -> s^2 - 4p
+# x * y = p -> y = p / x
+# import math
+# x1 = (s + math.sqrt(s**2 - 4*p)) / 2
+# x2 = (s - math.sqrt(s**2 - 4*p)) / 2
+# print(x1, x2)
